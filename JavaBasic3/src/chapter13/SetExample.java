@@ -28,6 +28,5 @@ public class SetExample {
 		for (Student student : set) {
 			System.out.println(student);
 		}
-		//되나테스튼ㄴ
 	}
 }
