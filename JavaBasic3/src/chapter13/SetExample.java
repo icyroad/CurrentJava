@@ -1,6 +1,7 @@
 package chapter13;
 
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class SetExample {
 	public static void main(String[] args) {
@@ -15,5 +16,17 @@ public class SetExample {
 		set.add(new Student (2021120004,	"경송은",	"401"));
 		set.add(new Student (2021120005,	"오세현",	"402"));
 		System.out.println(set.size());
+		
+		//set 안의 데이터 출력 (옛날버전 jdk 1.5 미만)
+		Iterator<Student> iterator = set.iterator(); //iterator : 반복자
+		while (iterator.hasNext()) {
+			Student student = (Student) iterator.next();
+			System.out.println(student);
+		}
+		
+		//set 안의 데이터 출력 (jdk 1.5 이상) foreach문
+		for (Student student : set) {
+			System.out.println(student);
+		}
 	}
 }
