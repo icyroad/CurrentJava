@@ -74,4 +74,22 @@ public class MemoDAO {
 		connection.close();
 		return executeUpdate;
 	}
+	
+	public int deleteMemo (int deleteNo) throws Exception {
+		DriverManager.registerDriver(new OracleDriver());
+		Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "ddit", "java");
+		StringBuilder builder = new StringBuilder(); 
+		builder.append(" DELETE ");
+		builder.append(" 	FROM memo ");
+		builder.append(" WHERE ");
+		builder.append("	no =?");
+		PreparedStatement statement = connection.prepareStatement(builder.toString());
+		statement.setInt(1, deleteNo);
+		
+		int executeUpdate = statement.executeUpdate();
+		statement.close();
+		connection.close();
+		return executeUpdate;
+
+	}
 }

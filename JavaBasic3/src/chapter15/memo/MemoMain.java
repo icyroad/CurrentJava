@@ -49,6 +49,9 @@ public class MemoMain {
 					dao.updateMemo(vo);
 					break;
 				case 2:
+					System.out.print("삭제할 번호를 입력하세요: ");
+					int deleteNo = Integer.parseInt(scanner.nextLine());
+					dao.deleteMemo(deleteNo);
 					break;
 				}
 				break;
